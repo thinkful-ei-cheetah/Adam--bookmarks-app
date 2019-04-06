@@ -7,19 +7,17 @@ const bookmarkList = (function(){
         const expandedClass = item.expanded ? 'bookmark-item__expanded': "";
 
         let bookmarkTitle = `<span class="bookmark-item'>${item.name}</span>`;
-        let bookmarkRank =`<span class="bookmark-rating">${item.rank}</span>`;
-        let bookmarkDesription = `
-        <label for="bookmark-description">Description</label>
-        <p name="bookmark-description" class="bookmark-desc">${item.description}</p>
-        `;
+
     
        return  `
         <li class="js-bookmark-element" data-item-id="${item.id}">
+            <label for="bookmark-title">Title</label>
             ${bookmarkTitle}
             <label for="bookmark-rating">Rating</label>
-            ${bookmarkRank}
+            <span class="bookmark-rating"></span>
             <div class="disc-website ${expandedClass}">
-                ${bookmarkDesription}
+            <label for="bookmark-description">Description</label>
+            <p name="bookmark-description" class="bookmark-desc"></p>
                 <button class="website-link">Visit Website</button>
                     <div>
                         <button type="submit" class="js-save-changes">Save Changes</button>
@@ -48,13 +46,9 @@ const bookmarkList = (function(){
 
     function handleAddNewBookmark(){
         $('#js-bookmark-list-form').on('click', '.js-submit-bookmark', event => {
-            console.log('hitting button');
             event.preventDefault();
             const newBookmarkName = $('.js-bookmark-title-entry').val();
-            const newBookmarkRank = $('js-rank-entry').val();
-            const newBookmarkDesc = $('.js-description-entry').val();
-            const newBookmarkURL = $('js-url-entry').val();
-            api.createBookmark(newBookmarkName,newBookmarkRank, newBookmarkDesc, newBookmarkURL)
+            api.createBookmark(newBookmarkName)
                 .then(res => res.json())
                 .then((items) => {
                     store.addBookmark(items);

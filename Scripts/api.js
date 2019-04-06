@@ -11,12 +11,9 @@ const api = (function(){
             method:'DELETE',
         });
     }
-    function createBookmark (name, rank, description, webLink){
+    function createBookmark (name){
         const newItem =  {
             name,
-            rank,
-            description,
-            webLink
         };
         const stringObj = JSON.stringify(newItem);
 

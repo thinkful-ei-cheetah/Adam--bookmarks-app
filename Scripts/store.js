@@ -5,7 +5,6 @@ const store = (function(){
 
     function addBookmark(item) {
         return this.items.push(item);
-        
     }
     function removeItem(id){
         let index = this.items.findIndex(item => item.id !==id);
