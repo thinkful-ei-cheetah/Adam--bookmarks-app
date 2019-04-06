@@ -12,10 +12,26 @@
     <div>
         <h1>Bookmarks</h1>
         <form id="js-bookmark-list-form">
-            <button class="js-item-add">
-                <span class="button-label">Add Bookmark</span>
-            </button>
-            <select id="">
+            <div class="bookmark-list">
+                <label for="bookmark-title">Title</label>
+                <input type="text" name ="bookmark-title-entry" class="js-bookmark-title-entry" />
+                <label for="bookmark-rating">Rating</label>
+                <select name="bookmark-rating" class="js-rank-entry">
+                    <option value="">choose</option>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                </select>
+                <label for="bookmark-description">Description</label>
+                <textarea name="bookmark-description" class="js-description-entry"></textarea>
+                <label for="bookmark-url">Website link</label>
+                <input type="text" name="bookmark-url" class="js-url-entry">
+                <button type="submit" class ="js-submit-bookmark">Add Bookmark</button>
+            </div>
+            <label for="see-rating">See Rating Above: </label>
+            <select id="" name="see-rating">
                 <option value=" ">Choose: </option>
                 <option value="5">Rating: 5</option>
                 <option value="4">Rating: 4</option>
@@ -24,9 +40,14 @@
                 <option value="1">Rating: 1</option>
             </select>
         </form>
-    </div>    
+        
+        <ul class ="bookmark-list js-bookmark-list">
+        
+        </ul>
+        </div>
+        
+    </div>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="scripts/store.js"></script>
     <script type="text/javascript" src="scripts/bookmark-list.js"></script>

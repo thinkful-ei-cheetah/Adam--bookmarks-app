@@ -3,17 +3,20 @@
 const api = (function(){
     const BASE_URL = "https://thinkful-list-api.herokuapp.com/adam";
 
-    function getItems(){
+    function getBookmark(){
         return fetch(`${BASE_URL}/items/`);
     }
-    function deleteItem(id){
+    function deleteBookmark(id){
         return fetch(`${BASE_URL}/items/${id}`, {
             method:'DELETE',
         });
     }
-    function createItem (name){
+    function createBookmark (name, rank, description, webLink){
         const newItem =  {
             name,
+            rank,
+            description,
+            webLink
         };
         const stringObj = JSON.stringify(newItem);
 
@@ -23,13 +26,21 @@ const api = (function(){
             body: stringObj
         });
     }
+    function updateBookmark(id,updateData){
+        const stringObj = JSON.stringify(updateData);
+        return fetch(`${BASE_URL}/items/${id}`,{
+            method: 'PATCH',
+            headers: {'content-type': 'application/json'},
+            body: stringObj
+        });
+    }
 
 
-    
     return {
-        getItems,
-        deleteItem,
-        createItem
+        getBookmark,
+        deleteBookmark,
+        createBookmark,
+        updateBookmark
     };
 
 }());

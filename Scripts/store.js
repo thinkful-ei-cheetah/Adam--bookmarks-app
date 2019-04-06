@@ -3,25 +3,33 @@
 const store = (function(){
 
 
-    function addItem(item) {
+    function addBookmark(item) {
         return this.items.push(item);
-    }
-    function removeItem(id){
-        this.items = this.items.filter( item => item.id !==id); 
-    }
-    function seeRatingAbove(){
         
     }
-
-
+    function removeItem(id){
+        let index = this.items.findIndex(item => item.id !==id);
+        this.splice(index, 1);
+    }
+   
+    function setbookmarkName(name){
+        this.bookmarkName = name;
+    }
+    function setBookmarkDescription (desc){
+        this.description = desc;
+    }
+    
+    
     return{
         items: [],
         expanded: false,
+        bookmarkName: '',
+        description: '',
 
-        addItem,
+        addBookmark,
         removeItem,
-        seeRatingAbove
-
+        setbookmarkName,
+        setBookmarkDescription,
     };
 
 }());

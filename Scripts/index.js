@@ -1,7 +1,7 @@
 'use strict';
 /*global $, bookmarkList, */
 $(document).ready(function() {
-    bookmarkList.bindEventListners();
-})
+    bookmarkList.bindEventListeners();
+});
 
 //setting set into live environment
